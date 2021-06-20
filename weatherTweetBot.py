@@ -7,10 +7,9 @@ def tweetWeather():
     soup=BeautifulSoup(page.content,"html.parser")
     highTempText=soup.find("p",class_="temp temp-high").text
     lowTempText=soup.find("p",class_="temp temp-low").text
-    auth = tweepy.OAuthHandler("consumer_key", "consumer_secret")
-    auth.set_access_token("key", "secret")
+    auth = tweepy.OAuthHandler("consumer_key", "consumer_secret")#API KEYS
+    auth.set_access_token("key", "secret")#API ACCESS TOKENS
     api=tweepy.API(auth)
     print("Authentication OK")
     api.update_status("The weather today:\n"+highTempText+"\n"+lowTempText+"\nvia National Weather Service")
-
 tweetWeather()
